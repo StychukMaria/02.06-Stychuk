@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Знайомство з JS Стичук Марія</title>
+    <script>
+    	var photosCount = 5;//змінна кількості фотографій, які треба перегорнути
+    	var currentPhotoIndex = 1;//змінна, яка містить індекс поточного номеру фото
+    	function showNextPhoto(){//створюємо функцію для гортання фото
+    		currentPhotoIndex++;//додаємо одиничку до поточної змінної із номером фото
+    		if (currentPhotoIndex > photosCount) currentPhotoIndex = 1;//умова що дозволяє по колу перемикати фото від першого до 5}, а потім знову
+    		var elementPhoto = document.getElementById("currentPhoto");//помістити у змінні витягнути елемент із id
+    		elementPhoto.src = "images/photo" + currentPhotoIndex + ".jpg";//заміни номер у назві фото на поточний
+    	}
+    	function addNextPhoto(){//створюємо функцію для гортання фото
+    		currentPhotoIndex++;//додаємо одиничку до поточної змінної із номером фото
+    		if (currentPhotoIndex > photosCount) currentPhotoIndex = 1;//умова що дозволяє по колу перемикати фото від першого до 5}, а потім знову
+    		var newImage = document.createElement("img");
+            newImage.src = "images/photo" + currentPhotoIndex + ".jpg";//даємо ім'я картинці яку далі будемо вставляти
+    		var containerElement = document.getElementById("galleryPhoto");//
+    		containerElement.appendChild(newImage);
+    	}
+    </script>
+</head>
+<body>
+	<div id="galleryPhoto">
+		<img id="currentPhoto" src="images/photo1.jpg" />
+	</div>
+	<button onclick="showNextPhoto()">Наступне фото</button>
+	<button onclick="addNextPhoto()">Додати фото</button>
+</body>
+</html>
